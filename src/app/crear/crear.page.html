@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Agregar politico</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Titulo</ion-label>
+      <ion-input [(ngModel)]="titulo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Descripcion</ion-label>
+      <ion-input [(ngModel)]="descripcion"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Contenido</ion-label>
+      <ion-textarea [(ngModel)]="contenido" rows="6" cols="20" placeholder="Contenido de lo qeu pide este loco"></ion-textarea>
+    </ion-item>
+    <br>
+    <ion-label>Pifias</ion-label>
+    <ion-list>
+      <ion-item>
+        <ion-label>Titulo</ion-label>
+        <ion-input placeholder="titulo corto de la pifia" [(ngModel)]="pifia.titulo"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Descripcion</ion-label>
+        <ion-input placeholder="Descripcion de la pifia" [(ngModel)]="pifia.descripcion"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-item>
+      <ion-button expand="block" fill="outline" *ngIf="!ver" (click)="ver = !ver" style="cursor:pointer">Listar Pifias</ion-button>
+      <ion-button expand="block" fill="outline" *ngIf="ver" (click)="ver = !ver" style="cursor:pointer">Ocultar Pifias</ion-button>
+      <ion-button fill="outline" slot="end" (click)="agregarPifia()">Agregar</ion-button>
+    </ion-item>
+    <ion-list *ngIf="ver">
+      <ion-item *ngFor="let pifia of pifias">
+        <ion-label style="text-align:center" (click)="verPifia(pifia)">{{pifia.titulo}}</ion-label>
+      </ion-item>
+    </ion-list>
+
+    <br>
+    <ion-label>Imagenes</ion-label>
+    <ion-list>
+      <ion-item>
+        <ion-label>Imagen</ion-label>
+        <ion-input placeholder="url de la imagen" [(ngModel)]="imagen"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-item>
+      <ion-button expand="block" fill="outline" *ngIf="!verImagenes" (click)="verImagenes = !verImagenes" style="cursor:pointer">Listar Imagenes</ion-button>
+      <ion-button expand="block" fill="outline" *ngIf="verImagenes" (click)="verImagenes = !verImagenes" style="cursor:pointer">Ocultar Imagenes</ion-button>
+      <ion-button fill="outline" slot="end" (click)="agregarImagen()">Agregar</ion-button>
+    </ion-item>
+    <ion-list *ngIf="verImagenes">
+      <ion-item *ngFor="let img of imagenes">
+        <ion-label style="text-align:center" >{{img}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-list>
+  <ion-button expand="block" fill="outline" (click)="agregarNuevo()">Agregar politico</ion-button>
+
+</ion-content>

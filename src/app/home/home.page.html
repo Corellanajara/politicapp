@@ -8,12 +8,11 @@
 
 <ion-content [fullscreen]="true">
 
-  <ion-slides pager="true" [options]="slideOpts">
-      <ion-slide *ngFor="let politico of politicos">        
+  <ion-slides pager="true" [options]="slideOpts" >
+      <ion-slide *ngFor="let politico of politicos">
         <ion-card>
-          <ion-item>
+          <ion-item style="text-align:center">
             <ion-label>{{politico.titulo}}</ion-label>
-            <ion-button fill="outline" slot="end">Accion</ion-button>
           </ion-item>
           <ion-card-subtitle>
             {{politico.descripcion}}
@@ -21,24 +20,23 @@
           <ion-card-content>
             {{politico.contenido}}
           </ion-card-content>
-          <ion-list>
+          <ion-list >
             <ion-list-header lines="full">
               <ion-label> <b>Historial</b></ion-label>
-              <ion-button>ver todos</ion-button>
             </ion-list-header>
-            <ion-item *ngFor="let pifia of politico.pifias" (click)="verPifia(pifia)">
+            <ion-item *ngFor="let pifia of politico.pifias" (click)="verPifia(pifia)" style="text-align:center">
               <ion-label>{{pifia.titulo}}</ion-label>
             </ion-item>
           </ion-list>
-          <ion-slides pager="true">
+          <ion-slides #slider>
             <ion-slide *ngFor="let image of politico.imagenes">
               <img [src]="image"/>
             </ion-slide>
-          </ion-slides>
+          </ion-slides>          
+          <ion-button type="submit" float-right color="primary" class="btnNext" (click)="next()">Anterior</ion-button>
+          <ion-button type="submit" float-left  color="primary" class="btnPrev" (click)="prev()">Siguiente</ion-button>
         </ion-card>
       </ion-slide>
-      <ion-slide>
-        <h1>Slide 2</h1>
-      </ion-slide>
+
     </ion-slides>
 </ion-content>
