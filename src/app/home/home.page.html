@@ -1,20 +1,41 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
+    <ion-title style="text-align:center">
+      PoliticApp
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide>
+
+        <ion-card>
+          <ion-item>
+            <ion-label>Titulo del asuntito donde puede haber un nombre</ion-label>
+            <ion-button fill="outline" slot="end">Accion</ion-button>
+          </ion-item>
+
+          <ion-card-content>
+            Este es un ejemplo que luego, en algun punto será dinamico
+            por mientras aqui pondre un lorem ipsum
+            <br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla hendrerit tempus. Aliquam viverra laoreet convallis. Curabitur ut ante tincidunt turpis euismod venenatis non vitae massa. Maecenas feugiat sagittis libero ac feugiat. Aliquam efficitur sapien sit amet dui consequat, vitae rhoncus purus facilisis. Mauris ac elit vel lorem pellentesque congue. Morbi nulla erat, tincidunt eu lacinia sed, sodales sed velit. Donec nec sapien at lectus viverra pretium tincidunt sed tortor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus suscipit mi vitae quam maximus elementum. In sagittis urna bibendum justo euismod, accumsan sagittis magna ornare. Ut erat ligula, rutrum eget quam a, elementum efficitur justo. Curabitur rutrum eget nisi eget tristique.
+
+            Aenean nec odio at lectus pharetra faucibus condimentum in lorem. Suspendisse iaculis est in sapien pulvinar dictum. Phasellus elementum elit nec orci commodo, non faucibus lectus pellentesque. In vulputate quam sit amet ante tincidunt, ut sagittis lacus dapibus. Nulla ante justo, ultrices ac porttitor ac, semper id ligula. In blandit iaculis accumsan. Proin non massa congue, tempus lacus aliquam, volutpat augue. Sed in aliquet felis. Suspendisse ac aliquet nisi, nec placerat justo. Sed aliquam felis odio, ut hendrerit eros pharetra sed. In viverra erat id tempor pellentesque.
+
+            Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean eget odio non dolor consequat finibus eu vel augue. Vivamus et porttitor nisi, ut eleifend risus. Donec pretium risus vitae nibh congue, sollicitudin vulputate ante consequat. Vivamus tincidunt id dolor non placerat. Praesent ornare urna ac erat mollis bibendum. Phasellus in purus nec dui efficitur fringilla sit amet eget felis. Morbi eu neque id ex tempor mattis sed in dui. Morbi consequat non felis et rhoncus. Maecenas venenatis mauris eget sapien lobortis, sed venenatis metus varius.
+          </ion-card-content>
+          <ion-slides pager="true">
+            <ion-slide *ngFor="let image of imagenes">
+              <img [src]="image"/>
+            </ion-slide>
+          </ion-slides>
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+        <h1>Slide 2</h1>
+      </ion-slide>
+    </ion-slides>
 </ion-content>
